@@ -1,5 +1,3 @@
-from setuptools import setup, find_packages
-
 setup(
     name='mon_calculateur',
     version='0.1.0',
@@ -9,7 +7,7 @@ setup(
     long_description_content_type='text/markdown',
     author='michel scourfield',
     author_email='michel@example.com',
-    url='https://github.com/michelscourfield/mon_calculateur',
+    url='https://github.com/michelscourfield77/Python',
     license='MIT',
     classifiers=[
         'Programming Language :: Python :: 3',
