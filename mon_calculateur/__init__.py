@@ -1,1 +1,1 @@
-from .core import evaluer_expression
+from .core import evaluer_expression, calculer_ecart_et_correction
