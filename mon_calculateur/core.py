@@ -1,9 +1,8 @@
-
 import math
 
 def evaluer_expression(expr):
-    # On définit un environnement sécurisé
-    variables_autorisées = {
+    # Environnement sécurisé
+    variables_autorisees = {
         'sqrt': math.sqrt,
         'sin': math.sin,
         'cos': math.cos,
@@ -13,7 +12,12 @@ def evaluer_expression(expr):
         'e': math.e,
         '__builtins__': {}
     }
-    return eval(expr, variables_autorisées)
+    return eval(expr, variables_autorisees)
+
+def calculer_ecart_et_correction(resultat_obtenu, resultat_attendu):
+    ecart = resultat_obtenu - resultat_attendu
+    correction = resultat_obtenu - ecart
+    return ecart, correction
 
 # --- Programme principal ---
 
@@ -25,11 +29,11 @@ resultat_obtenu = float(input("Quel résultat as-tu obtenu ? "))
 # --- Logique 1 ---
 delta = resultat_attendu - resultat_obtenu
 
-# Correction basée sur l'écart dans la logique 1
+# Correction basée sur l'écart
 if delta < 0:
-    correction = resultat_obtenu - abs(delta)  # soustraction de la valeur absolue de l'écart
+    correction = resultat_obtenu - abs(delta)
 else:
-    correction = resultat_obtenu + delta  # Addition si l'écart est positif
+    correction = resultat_obtenu + delta
 
 # --- Affichage de la logique 1 ---
 print("\n--- Analyse du premier calcul ---")
@@ -44,10 +48,9 @@ print("\n--- Analyse du deuxième calcul ---")
 print(f"Résultat obtenu (de la logique 1) : {resultat_obtenu}")
 print(f"Écart Δ : {delta}")
 
-# Calcul pour retrouver le résultat attendu dans la logique 2, avec la règle ajustée
+# Calcul logique 2
 resultat_attendu_logique2 = resultat_obtenu + delta
 
-# Affichage de la logique 2
 print("\n--- Calcul de la logique 2 ---")
 print("Nous réutilisons l'écart Δ de la logique 1 :", delta)
 print(f"Résultat obtenu (de la logique 1) : {resultat_obtenu}")
@@ -56,17 +59,7 @@ print(f"Résultat attendu = Résultat obtenu + Δ")
 print(f"Résultat attendu = {resultat_obtenu} + ({delta})")
 print(f"Résultat attendu = {resultat_attendu_logique2}")
 
-
-print(" Logique 1 : Voici ce qui était correct, voici ce que vous avez fait, et voici l'erreur. ")
-print("Logique 2 : Voici l'erreur que vous avez faite, en partant de votre réponse, voici comment on revient à la bonne réponse.  ")
-
-
-
-
-
-
-
-
-
+print("\nLogique 1 : Voici ce qui était correct, voici ce que vous avez fait, et voici l'erreur.")
+print("Logique 2 : Voici l'erreur que vous avez faite, en partant de votre réponse, voici comment on revient à la bonne réponse.")
 
 
